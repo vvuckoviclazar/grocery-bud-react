@@ -1,0 +1,57 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-size: 6.25%;
+}
+
+body {
+  background-color: rgb(247, 253, 255);
+  font-family: sans-serif;
+  padding-top: 50rem;
+}
+
+form {
+  margin: 100rem auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  width: 500rem;
+  padding: 35rem 20rem 50rem 35rem;
+  border-radius: 5rem;
+  box-shadow: 3rem 3rem 7rem 3rem rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  font-size: 27rem;
+  font-weight: 500;
+  margin-bottom: 20rem;
+}
+
+.input-div {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 4.1fr 0.9fr;
+  margin-bottom: 20rem;
+}
+
+.addBtn {
+  color: white;
+  background-color: rgb(63, 189, 189);
+  border: none;
+  font-size: 15rem;
+}
+
+input {
+  font-size: 20rem;
+  border: 1rem solid rgb(227, 227, 227);
+  border-radius: 3rem 0rem 0rem 3rem;
+  background-color: rgb(248, 248, 248);
+  padding: 5rem;
+  padding-left: 8rem;
+}
