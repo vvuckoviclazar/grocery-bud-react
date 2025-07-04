@@ -50,7 +50,24 @@ function GroceryList() {
       <ul className="grocery-list">
         {texts.map((text) => (
           <li key={text.id}>
-            <h3 className={text.checked ? "crossed" : ""}>{text.value}</h3>
+            {text.edited ? (
+              <input
+                className="editingInput"
+                type="text"
+                value={text.value}
+                onChange={(e) => {
+                  const updated = texts.map((item) =>
+                    item.id === text.id
+                      ? { ...item, value: e.target.value }
+                      : item
+                  );
+                  setTexts(updated);
+                }}
+              />
+            ) : (
+              <h3 className={text.checked ? "crossed" : ""}>{text.value}</h3>
+            )}
+
             <div className="handle-grocery">
               <button
                 className="checkBtn"
