@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./index.css";
+import { ToastContainer, toast, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 let nextId = 0;
 
@@ -9,12 +11,16 @@ function GroceryList() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!value.trim()) return;
+    if (!value) {
+      toast.error("Please enter an item before adding.");
+      return;
+    }
 
     setTexts([
       ...texts,
       { id: nextId++, value: value, checked: false, edited: false },
     ]);
+    toast.success("Item added successfully!");
     setValue("");
   };
 
@@ -71,6 +77,7 @@ function GroceryList() {
             <div className="handle-grocery">
               <button
                 className="checkBtn"
+                type="button"
                 onClick={(e) => {
                   toggleChecked(text.id);
                 }}
@@ -94,6 +101,7 @@ function GroceryList() {
               </button>
               <button
                 className="editBtn"
+                type="button"
                 onClick={(e) => {
                   toggleEdited(text.id);
                 }}
@@ -140,6 +148,23 @@ function GroceryList() {
           </li>
         ))}
       </ul>
+
+      <ToastContainer
+        containerClassName="my-toast-container"
+        toastClassName="my-global-toast"
+        bodyClassName="my-global-toast-body"
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
+      />
     </form>
   );
 }

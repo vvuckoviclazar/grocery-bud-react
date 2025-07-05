@@ -135,3 +135,13 @@ h3 {
   width: 100%;
   font-size: 27rem;
 }
+
+.my-global-toast {
+  font-size: 15rem;
+  color: black;
+  padding: 10rem;
+}
+
+.my-global-toast {
+  margin-bottom: 10rem;
+}
